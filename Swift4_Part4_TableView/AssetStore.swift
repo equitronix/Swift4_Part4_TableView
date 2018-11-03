@@ -10,11 +10,6 @@ import UIKit
 
 class AssetStore {
     var allItems =  [AssetItem]();
-    init(){
-        for _ in 0..<5 {
-            createItem();
-        }
-    }
      @discardableResult func createItem() -> AssetItem{
         let item = AssetItem(random: true);
         allItems.append(item);
