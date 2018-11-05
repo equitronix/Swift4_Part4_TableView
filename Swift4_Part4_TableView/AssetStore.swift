@@ -16,4 +16,12 @@ class AssetStore {
         return item;
         
     }
+    func removeItem(item: AssetItem) -> Void {
+        if let index = allItems.firstIndex(of: item) {
+            allItems.remove(at: index);
+        }
+    }
+    func removeItem(at index:Int){
+        allItems.remove(at: index);
+    }
 }

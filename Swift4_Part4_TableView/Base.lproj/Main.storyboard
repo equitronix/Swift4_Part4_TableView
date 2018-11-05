@@ -27,9 +27,8 @@
                                         <action selector="toggleEditingMode:" destination="sv9-71-m8G" eventType="touchUpInside" id="Zk9-4A-EuS"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ry-NI-apH">
-                                    <rect key="frame" x="191.5" y="7" width="175.5" height="30"/>
-                                    <state key="normal" title="Add"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ry-NI-apH">
+                                    <rect key="frame" x="191.5" y="11" width="175.5" height="22"/>
                                     <connections>
                                         <action selector="addItem:" destination="sv9-71-m8G" eventType="touchUpInside" id="156-NC-r4A"/>
                                     </connections>

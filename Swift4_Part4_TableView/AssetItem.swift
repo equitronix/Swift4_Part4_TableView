@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class AssetItem {
+class AssetItem:NSObject {
     var name: String;
     var value: Int;
     var serialNumber: String?;

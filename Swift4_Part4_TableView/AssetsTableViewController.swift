@@ -74,10 +74,19 @@ class AssetsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            assetStore.allItems.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            let item = assetStore.allItems[indexPath.row];
+            let ac = UIAlertController(title: "Delete \(item.name)", message: "Sure you want to go ahead", preferredStyle: .actionSheet);
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
+                self.assetStore.removeItem(at: indexPath.row);
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            ac.addAction(deleteAction)
+            
+            present(ac, animated:true, completion: nil);
+            
+            
         }
     }
     
