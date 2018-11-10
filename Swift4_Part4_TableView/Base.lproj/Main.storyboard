@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Assets Table View Controller-->
+        <!--Home Assets-->
         <scene sceneID="9af-sA-A29">
             <objects>
                 <tableViewController id="sv9-71-m8G" customClass="AssetsTableViewController" customModule="Swift4_Part4_TableView" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                             <outlet property="delegate" destination="sv9-71-m8G" id="zGE-hz-E9K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wwC-cF-5fJ"/>
+                    <navigationItem key="navigationItem" title="Home Assets" id="wwC-cF-5fJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Rw-3j-ejy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,6 +129,10 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="nameChanged:" destination="Jho-2K-WCc" eventType="editingChanged" id="hQd-pr-lsN"/>
+                                                    <outlet property="delegate" destination="Jho-2K-WCc" id="cvt-g2-UX8"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -146,6 +150,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Jho-2K-WCc" id="9Nj-qA-Wsj"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -163,11 +170,15 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Jho-2K-WCc" id="GgO-u7-OjS"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvr-ci-Th8">
                                         <rect key="frame" x="0.0" y="114" width="359" height="473"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -180,6 +191,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GqA-Dc-tAp" firstAttribute="leading" secondItem="HAV-SG-qmn" secondAttribute="leading" constant="8" id="YhW-LG-X9i"/>
                             <constraint firstItem="GqA-Dc-tAp" firstAttribute="top" secondItem="HAV-SG-qmn" secondAttribute="top" constant="8" id="Zdw-wo-A4C"/>
@@ -187,6 +199,9 @@
                             <constraint firstItem="HAV-SG-qmn" firstAttribute="trailing" secondItem="GqA-Dc-tAp" secondAttribute="trailingMargin" constant="8" id="hP5-4F-I3L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HAV-SG-qmn"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ABz-zh-COl" appends="YES" id="SG9-j8-kmk"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="fvr-ci-Th8" id="OYH-xI-kcP"/>
@@ -196,6 +211,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTu-Or-g9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ABz-zh-COl">
+                    <connections>
+                        <action selector="endEditing:" destination="Jho-2K-WCc" id="ttI-zf-REg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1631.2" y="32.833583208395808"/>
         </scene>

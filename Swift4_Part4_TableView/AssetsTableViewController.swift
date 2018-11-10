@@ -103,7 +103,9 @@ class AssetsTableViewController: UITableViewController {
             
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData();
+    }
     
     /*
      // Override to support rearranging the table view.
