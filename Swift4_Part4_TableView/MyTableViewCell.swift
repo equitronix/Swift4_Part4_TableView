@@ -15,16 +15,13 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var SerialLabel: UILabel!;
     @IBOutlet weak var PriceLabel: UILabel!;
     
-    var isAmountLess = false;
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         NameLabel.adjustsFontForContentSizeCategory = true;
         SerialLabel.adjustsFontForContentSizeCategory = true;
         PriceLabel.adjustsFontForContentSizeCategory = true;
-        if isAmountLess {
-            backgroundColor = UIColor.red;
-        }
     }
     
 

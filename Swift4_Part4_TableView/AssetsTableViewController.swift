@@ -26,7 +26,12 @@ class AssetsTableViewController: UITableViewController {
         assetStore.createItem();
         tableView.insertRows(at: [IndexPath(row: assetStore.allItems.count-1, section: 0)], with: .automatic);
     }
-    
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let item = assetStore.allItems[indexPath.row];
+//        if item.value < 50 {
+//            cell.backgroundColor = UIColor.red;
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +69,10 @@ class AssetsTableViewController: UITableViewController {
         cell.NameLabel.text = item.name
         cell.PriceLabel.text = "$\(item.value)"
         cell.SerialLabel.text = item.serialNumber
-        cell.isAmountLess = item.value < 50;
+        
+        if item.value < 50 {
+            cell.backgroundColor = UIColor.red;
+        }
         return cell
     }
     
