@@ -64,6 +64,7 @@ class AssetsTableViewController: UITableViewController {
         cell.NameLabel.text = item.name
         cell.PriceLabel.text = "$\(item.value)"
         cell.SerialLabel.text = item.serialNumber
+        cell.isAmountLess = item.value < 50;
         return cell
     }
     

@@ -15,15 +15,24 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var SerialLabel: UILabel!;
     @IBOutlet weak var PriceLabel: UILabel!;
     
+    var isAmountLess = false;
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        NameLabel.adjustsFontForContentSizeCategory = true;
+        SerialLabel.adjustsFontForContentSizeCategory = true;
+        PriceLabel.adjustsFontForContentSizeCategory = true;
+        if isAmountLess {
+            backgroundColor = UIColor.red;
+        }
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
 
 }
