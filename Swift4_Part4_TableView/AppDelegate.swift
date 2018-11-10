@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let assetController = window?.rootViewController as? AssetsTableViewController;
+        let navController = window?.rootViewController as? UINavigationController;
+        let assetController = navController?.topViewController as? AssetsTableViewController;
         if let ac = assetController {
             ac.assetStore = AssetStore();
         }else{
