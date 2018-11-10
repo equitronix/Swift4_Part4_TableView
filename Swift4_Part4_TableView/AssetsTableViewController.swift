@@ -34,6 +34,8 @@ class AssetsTableViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0);
         tableView.contentInset  = insets;
         tableView.scrollIndicatorInsets = insets;
+        tableView.rowHeight = UITableView.automaticDimension;
+        tableView.estimatedRowHeight = 65;
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -55,10 +57,13 @@ class AssetsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        cell.textLabel?.text = assetStore.allItems[indexPath.row].name;
-        cell.detailTextLabel?.text = "Rs \(assetStore.allItems[indexPath.row].value)";
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyTableViewCell", for: indexPath) as! MyTableViewCell;
+        let item = assetStore.allItems[indexPath.row];
+//        cell.textLabel?.text = assetStore.allItems[indexPath.row].name;
+//        cell.detailTextLabel?.text = "Rs \(assetStore.allItems[indexPath.row].value)";
+        cell.NameLabel.text = item.name
+        cell.PriceLabel.text = "$\(item.value)"
+        cell.SerialLabel.text = item.serialNumber
         return cell
     }
     
