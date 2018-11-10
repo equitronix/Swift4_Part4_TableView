@@ -130,4 +130,22 @@ class AssetsTableViewController: UITableViewController {
      }
      */
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //         Get the new view controller using segue.destination.
+        //         Pass the selected object to the new view controller.
+        
+        switch segue.identifier {
+        case "showItem":
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = assetStore.allItems[row]
+                let destinationController = segue.destination as! DetailViewController;
+                destinationController.item = item;
+            }
+        default:
+            preconditionFailure("Unidentified segue");
+            
+        }
+    }
+
+    
 }

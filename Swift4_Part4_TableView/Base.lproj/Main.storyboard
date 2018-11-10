@@ -89,6 +89,7 @@
                                     <outlet property="NameLabel" destination="JsC-s5-iYg" id="Jp9-eF-jf3"/>
                                     <outlet property="PriceLabel" destination="691-Rd-1Da" id="eQg-63-W0x"/>
                                     <outlet property="SerialLabel" destination="uhD-ZO-Qrd" id="sOF-hn-fAn"/>
+                                    <segue destination="Jho-2K-WCc" kind="show" identifier="showItem" id="aDk-kb-kfE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -102,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="-81" y="31"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="3ug-9b-hNx">
             <objects>
-                <viewController id="Jho-2K-WCc" sceneMemberID="viewController">
+                <viewController id="Jho-2K-WCc" customClass="DetailViewController" customModule="Swift4_Part4_TableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H6j-KA-mf3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,6 +187,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HAV-SG-qmn"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="fvr-ci-Th8" id="OYH-xI-kcP"/>
+                        <outlet property="nameField" destination="x1O-4C-fcL" id="I24-m1-gzY"/>
+                        <outlet property="serialField" destination="0YP-a3-Qc5" id="Ebc-tI-srt"/>
+                        <outlet property="valueField" destination="qgs-8u-YhE" id="886-SB-86Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTu-Or-g9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
