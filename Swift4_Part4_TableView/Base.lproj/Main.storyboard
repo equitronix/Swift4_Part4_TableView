@@ -17,37 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="6IN-Zs-VMC">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-V5-S5D">
-                                    <rect key="frame" x="8" y="7" width="175.5" height="30"/>
-                                    <state key="normal" title="Edit"/>
-                                    <connections>
-                                        <action selector="toggleEditingMode:" destination="sv9-71-m8G" eventType="touchUpInside" id="Zk9-4A-EuS"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ry-NI-apH">
-                                    <rect key="frame" x="191.5" y="11" width="175.5" height="22"/>
-                                    <connections>
-                                        <action selector="addItem:" destination="sv9-71-m8G" eventType="touchUpInside" id="156-NC-r4A"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="tWc-V5-S5D" firstAttribute="centerY" secondItem="6IN-Zs-VMC" secondAttribute="centerY" id="1qX-dX-7eV"/>
-                                <constraint firstItem="6ry-NI-apH" firstAttribute="width" secondItem="tWc-V5-S5D" secondAttribute="width" id="90v-4L-YBm"/>
-                                <constraint firstItem="6ry-NI-apH" firstAttribute="leading" secondItem="tWc-V5-S5D" secondAttribute="trailing" constant="8" id="E6f-Sp-t97"/>
-                                <constraint firstItem="6ry-NI-apH" firstAttribute="centerY" secondItem="6IN-Zs-VMC" secondAttribute="centerY" id="Sa5-Am-d4g"/>
-                                <constraint firstItem="tWc-V5-S5D" firstAttribute="leading" secondItem="6IN-Zs-VMC" secondAttribute="leading" constant="8" id="fVQ-Zi-Z75"/>
-                                <constraint firstAttribute="trailing" secondItem="6ry-NI-apH" secondAttribute="trailing" constant="8" id="rw9-cS-p2D"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTableViewCell" rowHeight="65" id="MC5-cw-rPj" customClass="MyTableViewCell" customModule="Swift4_Part4_TableView" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="65"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MC5-cw-rPj" id="zRn-zM-eGw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
@@ -98,7 +70,13 @@
                             <outlet property="delegate" destination="sv9-71-m8G" id="zGE-hz-E9K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home Assets" id="wwC-cF-5fJ"/>
+                    <navigationItem key="navigationItem" title="Home Assets" id="wwC-cF-5fJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5QA-vr-YZA">
+                            <connections>
+                                <action selector="addItem:" destination="sv9-71-m8G" id="MhK-4u-9o1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Rw-3j-ejy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,12 +155,25 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvr-ci-Th8">
-                                        <rect key="frame" x="0.0" y="114" width="359" height="473"/>
+                                        <rect key="frame" x="0.0" y="114" width="359" height="20.5"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="vJm-sw-P9D">
+                                        <rect key="frame" x="0.0" y="142.5" width="359" height="392.5"/>
+                                    </imageView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxJ-pA-aa3">
+                                        <rect key="frame" x="0.0" y="543" width="359" height="44"/>
+                                        <items>
+                                            <barButtonItem systemItem="camera" id="7xZ-im-oPD">
+                                                <connections>
+                                                    <action selector="takePicture:" destination="Jho-2K-WCc" id="wCg-VQ-Yw0"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="x1O-4C-fcL" firstAttribute="leading" secondItem="0YP-a3-Qc5" secondAttribute="leading" id="1kV-Gv-Inn"/>
@@ -205,6 +196,7 @@
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="fvr-ci-Th8" id="OYH-xI-kcP"/>
+                        <outlet property="imageView" destination="vJm-sw-P9D" id="wTf-4A-pHk"/>
                         <outlet property="nameField" destination="x1O-4C-fcL" id="I24-m1-gzY"/>
                         <outlet property="serialField" destination="0YP-a3-Qc5" id="Ebc-tI-srt"/>
                         <outlet property="valueField" destination="qgs-8u-YhE" id="886-SB-86Y"/>

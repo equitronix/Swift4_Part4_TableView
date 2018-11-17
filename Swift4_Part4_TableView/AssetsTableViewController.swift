@@ -11,18 +11,14 @@ import UIKit
 class AssetsTableViewController: UITableViewController {
     
     var assetStore: AssetStore!
+    var imageStore: ImageStore!
     
-    
-    @IBAction func toggleEditingMode(_ sender: UIButton){
-        if isEditing {
-            sender.setTitle("Edit", for: .normal)
-            self.setEditing(false, animated: true)
-        }else{
-            sender.setTitle("Done", for: .normal)
-            self.setEditing(true, animated: true)
-        }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        navigationItem.leftBarButtonItem = editButtonItem;
     }
-    @IBAction func addItem(_ sender: UIButton){
+    
+    @IBAction func addItem(_ sender: UIBarButtonItem){
         assetStore.createItem();
         tableView.insertRows(at: [IndexPath(row: assetStore.allItems.count-1, section: 0)], with: .automatic);
     }
@@ -35,10 +31,6 @@ class AssetsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height;
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0);
-        tableView.contentInset  = insets;
-        tableView.scrollIndicatorInsets = insets;
         tableView.rowHeight = UITableView.automaticDimension;
         tableView.estimatedRowHeight = 65;
         
@@ -92,6 +84,7 @@ class AssetsTableViewController: UITableViewController {
             let ac = UIAlertController(title: "Delete \(item.name)", message: "Sure you want to go ahead", preferredStyle: .actionSheet);
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
                 self.assetStore.removeItem(at: indexPath.row);
+                self.imageStore.deleteImage(forKey: item.imageKey)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -142,6 +135,7 @@ class AssetsTableViewController: UITableViewController {
                 let item = assetStore.allItems[row]
                 let destinationController = segue.destination as! DetailViewController;
                 destinationController.item = item;
+                destinationController.imageStore = imageStore;
             }
         default:
             preconditionFailure("Unidentified segue");

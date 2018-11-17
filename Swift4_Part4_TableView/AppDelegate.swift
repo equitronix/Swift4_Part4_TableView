@@ -12,13 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let assetStore = AssetStore();
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let navController = window?.rootViewController as? UINavigationController;
         let assetController = navController?.topViewController as? AssetsTableViewController;
         if let ac = assetController {
-            ac.assetStore = AssetStore();
+            ac.assetStore = assetStore;
+            ac.imageStore = ImageStore();
         }else{
             print("Asset store could not be set in AssetViewController.");
         }
@@ -33,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        if assetStore.saveChanges() {
+            print("All assets successfully saved")
+        }else{
+            print("assets not saved")
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

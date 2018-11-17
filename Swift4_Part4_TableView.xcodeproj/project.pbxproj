@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		842538D121901C6400ABE490 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842538D021901C6400ABE490 /* MyTableViewCell.swift */; };
 		849A92322196B5CC00EBE34E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A92312196B5CC00EBE34E /* DetailViewController.swift */; };
+		849A92342198119100EBE34E /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A92332198119100EBE34E /* ImageStore.swift */; };
 		84B388EF2188658900D9C910 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B388EE2188658900D9C910 /* AppDelegate.swift */; };
 		84B388F42188658900D9C910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B388F22188658900D9C910 /* Main.storyboard */; };
 		84B388F62188658E00D9C910 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B388F52188658E00D9C910 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		842538D021901C6400ABE490 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		849A92312196B5CC00EBE34E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		849A92332198119100EBE34E /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		84B388EB2188658900D9C910 /* Swift4_Part4_TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift4_Part4_TableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B388EE2188658900D9C910 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B388F32188658900D9C910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				84B388EE2188658900D9C910 /* AppDelegate.swift */,
 				84B388F22188658900D9C910 /* Main.storyboard */,
 				849A92312196B5CC00EBE34E /* DetailViewController.swift */,
+				849A92332198119100EBE34E /* ImageStore.swift */,
 				842538D021901C6400ABE490 /* MyTableViewCell.swift */,
 				84B388F52188658E00D9C910 /* Assets.xcassets */,
 				84B388F72188658E00D9C910 /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 				84B3891F21886A0B00D9C910 /* AssetItem.swift in Sources */,
 				849A92322196B5CC00EBE34E /* DetailViewController.swift in Sources */,
 				842538D121901C6400ABE490 /* MyTableViewCell.swift in Sources */,
+				849A92342198119100EBE34E /* ImageStore.swift in Sources */,
 				84B388EF2188658900D9C910 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

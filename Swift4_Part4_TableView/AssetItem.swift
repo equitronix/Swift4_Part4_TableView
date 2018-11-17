@@ -7,17 +7,57 @@
 //
 
 import Foundation
-class AssetItem:NSObject {
+class AssetItem:NSObject,  NSSecureCoding {
+    static var supportsSecureCoding: Bool {
+        return true;
+    }
+    
+    
     var name: String;
     var value: Int;
     var serialNumber: String?;
     let dateCreated: Date;
+    let imageKey: String;
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(value, forKey: "value")
+        aCoder.encode(serialNumber, forKey: "serialNumner")
+        aCoder.encode(dateCreated, forKey: "dateCreated")
+        aCoder.encode(imageKey, forKey:"imageKey")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        
+        guard let n = aDecoder.decodeObject(of: NSString.self, forKey: "name") else {
+            let error = CocoaError.error(.coderValueNotFound, userInfo: [NSLocalizedDescriptionKey: "Name of Asset Item could not be read."])
+            aDecoder.failWithError(error)
+            return nil;
+        }
+        self.name = n as String;
+        
+        value = aDecoder.decodeInteger(forKey: "value")
+        serialNumber = aDecoder.decodeObject(forKey: "serialNumber") as! String?
+        //        dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
+        if let dc = aDecoder.decodeObject(of: NSDate.self, forKey: "dateCreated"){
+            dateCreated = dc as Date} else {
+            let error = CocoaError.error(.coderValueNotFound);
+            aDecoder.failWithError(error)
+            return nil;
+        }
+        
+        imageKey = aDecoder.decodeObject(forKey: "imageKey") as! String
+        super.init();
+    }
+    
     
     init(name:String, value: Int, serialNumber: String?){
         self.name = name;
         self.value = value;
         self.serialNumber = serialNumber;
         self.dateCreated = Date();
+        self.imageKey = UUID().uuidString;
     }
     convenience init(random: Bool = false){
         if random{
